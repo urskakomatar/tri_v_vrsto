@@ -31,12 +31,12 @@ while nova_igra == "n":
             break
 
 
+
         trenutna_igra.menjava_igralcev()
 
 
     print("Igre je konec")
-    print(f"Zmagal je {trenutna_igra.igralec}")
-    input("Pritisnite N za novo igro: ")
+    nova_igra = input("Pritisnite N za novo igro: ")
 
 print("KONEC PROGRAMA")
 
