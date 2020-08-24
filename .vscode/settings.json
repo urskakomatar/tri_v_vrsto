@@ -1,3 +1,5 @@
 {
-    "git.allowForcePush": true
+    "git.allowForcePush": true,
+    "git-graph.dialog.addTag.pushToRemote": true,
+    "git-graph.fetchAndPrune": true
 }
