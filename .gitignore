@@ -130,3 +130,6 @@ dmypy.json
 
 #for VSCode shortcuts
 */.json
+
+.VSCode
+__pycache__
