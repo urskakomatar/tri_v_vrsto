@@ -24,17 +24,17 @@ def poteza():
     stevilka = int(bottle.request.forms.getunicode('polje'))
     print(stevilka)
     if tri_v_vrsto.napacna_poteza(stevilka):
-        tri_v_vrsto.sporocilo = "Napacna poteza"
+        tri_v_vrsto.sporocilo = "Napačna poteza!!!"
         return bottle.redirect("/igra/")
     if tri_v_vrsto.ponovljena_poteza(stevilka - 1):
-        tri_v_vrsto.sporocilo = "ponovljena"
+        tri_v_vrsto.sporocilo = "To polje je že zasedeno!!!"
         return bottle.redirect("/igra/")
     tri_v_vrsto.plosca[stevilka - 1] = tri_v_vrsto.igralec
     if tri_v_vrsto.zmaga():
-        tri_v_vrsto.sporocilo = "Zmagal je " + tri_v_vrsto.igralec
+        tri_v_vrsto.sporocilo = "Bravo! Zmagal je " + tri_v_vrsto.igralec
         return bottle.redirect("/igra/")
     if tri_v_vrsto.neodloceno():
-        tri_v_vrsto.sporocilo = "Neodloceno"
+        tri_v_vrsto.sporocilo = "Neodločeno"
         return bottle.redirect("/igra/")
     tri_v_vrsto.menjava_igralcev()
     tri_v_vrsto.sporocilo = ""

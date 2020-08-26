@@ -1,6 +1,7 @@
 
 %import tri_v_vrsto_model
-%rebase('base.tpl', title='Tri v vrsto')
+%rebase('base.tpl')
+
 
 <style type="text/css">
     table, td, tr {
