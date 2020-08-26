@@ -21,8 +21,15 @@ def pokazi_igro():
 
 @bottle.post("/poteza/")
 def poteza():
-    stevilka = int(bottle.request.forms.getunicode('polje'))
+    stevilka = (bottle.request.forms.getunicode('polje'))
+
+    if stevilka == "":
+        tri_v_vrsto.sporocilo = "Vstavi številko!!!"
+        return bottle.redirect("/igra/")
+
+    stevilka = int(stevilka)
     print(stevilka)
+
     if tri_v_vrsto.napacna_poteza(stevilka):
         tri_v_vrsto.sporocilo = "Napačna poteza!!!"
         return bottle.redirect("/igra/")
@@ -37,7 +44,7 @@ def poteza():
         tri_v_vrsto.sporocilo = "Neodločeno"
         return bottle.redirect("/igra/")
     tri_v_vrsto.menjava_igralcev()
-    tri_v_vrsto.sporocilo = ""
+    tri_v_vrsto.sporocilo = "Na vrsti je " + tri_v_vrsto.igralec
     return bottle.redirect("/igra/")
 
 @bottle.get('/img/<picture>')
@@ -45,3 +52,4 @@ def serve_pictures(picture):
     return bottle.static_file(picture, root='img')
 
 bottle.run(reloader=True, debug=True)
+

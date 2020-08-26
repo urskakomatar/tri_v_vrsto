@@ -4,24 +4,33 @@
 
 
 <style type="text/css">
-    table, td, tr {
-        border: 1px solid black;
+    .spodnja_crta {
+        border-bottom: 5px black solid;
     }
-    td {
+    .desna_crta {
+        border-right: 5px black solid;
+    }
+    table {
+        width: 100%;
+        height: 100%;
+    }
+    #igra td {
+        text-align: center;
+        width: 33%;
         height: 33%;
-    } 
+    }
     #igra {
-        table-layout: initial;
-        margin-top: 10px;
         width: 50vh;
         height: 50vh;
     }
-    #legenda {
+    #legenda, #legenda td {
+        border: 1px black solid;
         margin-top: 10px;
-        width: 15vh;
-        height: 15vh;
+        margin-right: none;
+        width: 30vh;
+        text-align: center;
     }
-        
+
 </style>
 
 <!DOCTYPE html>
@@ -31,69 +40,68 @@
 <body>
 
     <h4> {{sporocilo}} </h4>
-    
+
     <form action="/nova_igra/", method="POST">
         <input type="submit" value="Nova igra">
     </form>
-    
+
 
     <table id="igra">
-        <tr>
-            <td> 
+        <tr class="spodnja_crta">
+            <td class="desna_crta">
                 %if plosca[0] != '-':
-                    <img src="/img/{{plosca[0]}}.jpg" style="display: block;">
+                    <img src="/img/{{plosca[0]}}-cutout.jpg">
                 %end
              </td>
-            <td> 
+            <td class="desna_crta">
                 %if plosca[1] != '-':
-                    <img src="/img/{{plosca[1]}}.jpg">
-                %end    
+                    <img src="/img/{{plosca[1]}}-cutout.jpg">
+                %end
             </td>
-            <td>  
+            <td>
                 %if plosca[2] != '-':
-                    <img src="/img/{{plosca[2]}}.jpg">
-                %end    
+                    <img src="/img/{{plosca[2]}}-cutout.jpg">
+                %end
             </td>
         </tr>
 
-        <tr>
-            <td> 
+        <tr class="spodnja_crta">
+            <td class="desna_crta">
                 %if plosca[3] != '-':
-                    <img src="/img/{{plosca[3]}}.jpg">
+                    <img src="/img/{{plosca[3]}}-cutout.jpg">
                 %end
             </td>
-            <td> 
+            <td class="desna_crta">
                 %if plosca[4] != '-':
-                    <img src="/img/{{plosca[4]}}.jpg">
+                    <img src="/img/{{plosca[4]}}-cutout.jpg">
                 %end
             </td>
-            <td> 
+            <td>
                 %if plosca[5] != '-':
-                    <img src="/img/{{plosca[5]}}.jpg">
+                    <img src="/img/{{plosca[5]}}-cutout.jpg">
                 %end
             </td>
         </tr>
 
         <tr>
-            <td> 
+            <td class="desna_crta">
                 %if plosca[6] != '-':
-                    <img src="/img/{{plosca[6]}}.jpg">
+                    <img src="/img/{{plosca[6]}}-cutout.jpg">
                 %end
             </td>
-            <td> 
+            <td class="desna_crta">
                 %if plosca[7] != '-':
-                    <img src="/img/{{plosca[7]}}.jpg">
+                    <img src="/img/{{plosca[7]}}-cutout.jpg">
                 %end
             </td>
-            <td> 
+            <td>
                 %if plosca[8] != '-':
-                    <img src="/img/{{plosca[8]}}.jpg">
+                    <img src="/img/{{plosca[8]}}-cutout.jpg">
                 %end
             </td>
         </tr>
 
     </table>
-
     <table id="legenda">
         <tr>
             <td> 1  </td>
@@ -113,10 +121,9 @@
             <td> 9  </td>
         </tr>
     </table>
-
     <form action="/poteza/" method="POST">
         <label>Vnesi potezo:</label>
-        <input type="number" name="polje">
+        <input type="number" name="polje" autofocus="autofocus">
         <input type="submit" value="potrdi">
     </form>
 </body>
