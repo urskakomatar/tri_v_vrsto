@@ -6,7 +6,7 @@ nova_igra = 'n'
 while nova_igra == "n":
     trenutna_igra = Igra()
 
-    #print(trenutna_igra)
+    # print(trenutna_igra)
 
     while True:
         trenutna_igra.izpis_igre()
@@ -30,14 +30,10 @@ while nova_igra == "n":
             print("Neodloceno")
             break
 
-
-
         trenutna_igra.menjava_igralcev()
-
 
     print("Igre je konec")
     nova_igra = input("Pritisnite N za novo igro: ")
 
 print("KONEC PROGRAMA")
-
 

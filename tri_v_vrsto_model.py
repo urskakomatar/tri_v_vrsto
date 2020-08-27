@@ -82,6 +82,7 @@ class Igra:
         elif self.igralec == "O":
             self.igralec = "X"
 
+
 class Tri_v_vrsto:
     def __init__(self, igralec='X'):
         self.igralec = igralec
@@ -89,6 +90,7 @@ class Tri_v_vrsto:
                        "-", "-", "-",
                        "-", "-", "-"]
         self.sporocilo = ""
+        self.konec = ""
 
     def nova_igra(self):
         self.igralec = "X"
@@ -96,6 +98,7 @@ class Tri_v_vrsto:
                        "-", "-", "-",
                        "-", "-", "-"]
         self.sporocilo = ""
+        self.konec = ""
 
     def menjava_igralcev(self):
         if self.igralec == "X":
@@ -141,7 +144,3 @@ class Tri_v_vrsto:
         if '-' not in self.plosca:
             return True
         return False
-
-    
-    
-
